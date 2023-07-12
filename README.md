@@ -18,7 +18,7 @@ public double getBonificacion() {
 
 Para probar la clase que acabas de implementar, cree la clase **TestFuncionario**, con el método *main*. En él, instancia un **Funcionario** asignándole un nombre, documentoIndentidad y salario, e imprímelos.
 
-````java
+```java
 public class TestFuncionario {
 
     public static void main(String[] args) {
@@ -139,7 +139,6 @@ public class Gerente extends Funcionario{
 
 }
 ```
-
 #### Lo que aprendimos
 
 En esta aula comenzamos a hablar de herencia y aprendimos:
