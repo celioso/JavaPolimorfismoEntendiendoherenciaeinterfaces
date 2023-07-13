@@ -8,7 +8,12 @@ public class Gerente extends Funcionario {
 		this.clave = clave;
 	}
 	
-	public boolean iniciarSecion(String clave) {
+	public boolean iniciarSesion(String clave) {
 		return clave == "AluraCursoOnLine";
+	}
+	
+	// Sobreescritura de metodo
+	public double getBonificacion() {
+		return super.getSalario()+ super.getBonificacion();
 	}
 }
