@@ -1,5 +1,11 @@
 package bytebank_heredado;
 
-public class Contador {
+public class Contador extends Funcionario {
 
+	@Override
+	public double getBonificacion() {
+		return 200;
+	}
+
+		
 }

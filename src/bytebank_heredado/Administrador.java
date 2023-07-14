@@ -1,8 +1,8 @@
 package bytebank_heredado;
 
-public class Gerente extends Funcionario {
+public class Administrador extends Funcionario {
 	
-	private String clave;
+private String clave;
 	
 	public void setClave(String clave) {
 		this.clave = clave;
@@ -12,9 +12,10 @@ public class Gerente extends Funcionario {
 		return clave == "AluraCursoOnLine";
 	}
 	
-	// Sobreescritura de metodo
+	@Override
 	public double getBonificacion() {
-		System.out.println("EJECUTANDO DESDE GERENTE");
-		return super.getSalario()+ (this.getSalario()*0.05);
+		// TODO Auto-generated method stub
+		return 0;
 	}
+
 }
