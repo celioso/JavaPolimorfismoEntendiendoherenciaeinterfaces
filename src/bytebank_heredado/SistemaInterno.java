@@ -2,9 +2,9 @@ package bytebank_heredado;
 
 public class SistemaInterno {
 	
-	private String clave = "12345";
+	private String clave = "AluraCursoOnLine";
 	
-	public boolean autentica(Gerente gerente) {
+	public boolean autentica(Autenticable gerente) {
 		boolean puedeIniciarSesion = gerente.iniciarSesion(clave);
 		if (puedeIniciarSesion) {
 			System.out.println("Login exitoso");

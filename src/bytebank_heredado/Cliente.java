@@ -1,6 +1,6 @@
 package bytebank_heredado;
 
-public class Cliente {
+public class Cliente implements Autenticable{
 	private String nombre;
 	private String documento;
 	private String telefono;
@@ -24,6 +24,14 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 	
-	
+	@Override
+	public boolean iniciarSesion(String clave) {
+		return false;
+	}
+	@Override
+	public void setClave(String clave) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

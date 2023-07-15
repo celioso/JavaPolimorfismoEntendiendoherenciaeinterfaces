@@ -1,21 +1,23 @@
 package bytebank_heredado;
 
-public class Administrador extends Funcionario {
-	
-private String clave;
-	
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
-	
-	public boolean iniciarSesion(String clave) {
-		return clave == "AluraCursoOnLine";
-	}
+public class Administrador extends Funcionario implements Autenticable {
 	
 	@Override
 	public double getBonificacion() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void setClave(String clave) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean iniciarSesion(String clave) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
