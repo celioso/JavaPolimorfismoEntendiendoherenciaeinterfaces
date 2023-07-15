@@ -487,3 +487,369 @@ En esta clase aprendimos:
 - Qué son los métodos abstractos
 - Para qué sirven los métodos abstractos
 ¡En la siguiente clase veremos sobre el uso de **interfaces**!
+
+### Haga lo que hicimos en aula
+
+Si aún no lo ha abierto, abra el proyecto en* Funcionario*.
+
+Cree una clase llamada *SistemaInterno* que tenga una contraseña como atributo e implemente el método de *autenticar* de la siguiente manera:
+
+```java
+public class SistemaInterno {
+
+    private int contraseña = 2222;
+
+    public void autenticar(Gerente g) {
+
+        boolean autentico = g.autenticar(this.contraseña);
+
+        if (autentico) {
+            System.out.println("Puede entrar al sistema");
+        } else {
+            System.out.println("No puede entrar al sistema");
+        }
+    }
+}
+```
+
+Cree una clase de prueba llamada *TestSistema* con el método *main* ya generado.
+
+Cree una instancia de un *Gerente*, use el método *setContraseña* e ingrese la contraseña correcta, además, cree una instancia del S*istemaInterno* e intente autenticarse.
+
+El siguiente código debe estar dentro del método *main*:
+
+```java
+Gerente g = new Gerente ();
+g.setContraseña (2222);
+
+SistemaInterno si = new SistemaInterno();
+si.autenticar(g);
+```
+
+Cree una clase de *Administrador* que debe heredar de la clase de *Funcionario*. Date cuenta de que Eclipse ya nos da el método *getBonificacion*.
+
+Cree una clase abstracta *FuncionarioAutenticable* que herede de *Funcionario*
+
+Complete el código de *FuncionarioAutenticable* con el siguiente código:
+
+```java
+public class FuncionarioAutenticable {
+
+    private int contraseña;
+
+    public void setContraseña(int contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public boolean autenticar(int contraseña) {
+        if (this.contraseña == contraseña) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+```
+
+Modifique el código de *Gerente* haciendo que herede de *FuncionarioAutenticable*.
+
+```java
+public class Gerente extends FuncionarioAutenticable {
+//resto de código
+}
+```
+
+En el *SistemaInterno*, cambie la referencia del método* autenticar* para que reciba un *FuncionarioAutenticable*. Vea continuación:
+
+```java
+public class SistemaInterno {
+
+    private int contraseña = 2222;
+
+    public void autenticar(FuncionarioAutenticable ea) {
+
+        boolean autentico = ea.autenticar(this.contraseña);
+
+        if (autentico) {
+            System.out.println("Puede entrar al sistema");
+        } else {
+            System.out.println("No puede entrar al sistema");
+        }
+    }
+}
+```
+
+Tenga en cuenta que, si necesitamos que un cliente esté autenticado, tendremos un problema, ya que la clase* Cliente* necesitaría heredar de *FuncionarioAutenticable* y esto daría como resultado que un cliente tuviera una bonificación ya que la clase *FuncionarioAutenticable* hereda de Funcionario
+
+Para solucionar esto, haremos uso de las Interfaces, transformando la antigua clase abstracta *FuncionarioAutenticable* en la interfaz *Autenticacion* como se muestra a continuación:
+
+```java
+public abstract interface Autenticacion {
+
+    public abstract void setContraseña(int contraseña);
+        public abstract boolean autenticar(int contraseña);
+}
+```
+
+En la clase *Cliente*, use la palabra reservada **implements** para usar la interfaz creada, vea a continuación:
+
+```java
+public class Cliente implements Autenticacion {
+
+}
+```
+
+Complete el código para la clase *Cliente*, implementando los métodos que faltan:
+
+```java
+public class Cliente implements Autenticacion {
+
+    private int contraseña;
+
+    @Override
+    public void setContraseña(int contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    @Override
+    public boolean autenticar(int contraseña) {
+        if (this.contraseña == contraseña) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+```
+
+Haga que las clases *Gerente* y *Administrador* implementen la interfaz *Autenticacion*, ¡no olvide implementar los métodos y declarar la atributo *contraseña* privado!
+
+```java
+public class Gerente extends Funcionario implements Autenticacion {
+
+    private int contraseña;
+
+    public int getContraseña() {
+        // implementación da bonificación de gerente omitida;
+    }
+
+    @Override
+    public void setContraseña(int contraseña) {
+        this.contraseña = contraseña;
+
+    }
+
+    @Override
+    public boolean autenticar(int contraseña) {
+        if (this.contraseña == contraseña) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+
+public class Administrador extends Funcionario implements Autenticacion {
+
+    private int contraseña;
+
+    public int getContraseña() {
+        // implementación da bonificación de Administrador omitida;
+    }
+
+    @Override
+    public void setContraseña(int contraseña) {
+        this.contraseña = contraseña;
+
+    }
+
+    @Override
+    public boolean autenticar(int contraseña) {
+        if (this.contraseña == contraseña) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+```
+
+En *SistemaInterno* modifique el método de autenticar para que ahora reciba una *Autenticacion*.
+
+```java
+public class SistemaInterno {
+
+    private int contraseña = 2222;
+
+    public void autenticar(Autenticacion au) {
+
+        boolean autentico = au.autenticar(this.contraseña);
+
+        if (autentico) {
+            System.out.println("Puede entrar al sistema");
+        } else {
+            System.out.println("No puede entrar al sistema");
+        }
+    }
+}
+```
+
+Tenga en cuenta que ahora podemos usar la *Autenticación* como un tipo, vea el ejemplo a continuación:
+
+
+```java
+Autenticacion referencia = new Gerente();
+
+Autenticacion referencia = new Cliente();
+
+Autenticacion referencia = new Administrador();
+```
+
+### Lo que aprendimos
+
+En esta clase aprendimos que:
+
+- No hay herencia múltiple en Java.
+- Conceptos de interfaz.
+- Diferencias entre clases abstractas e interfaces.
+- Las interfaces son una alternativa a la herencia con respecto al polimorfismo
+¡En el próximo capítulo practicaremos un poco más sobre herencia e interfaces!
+
+### Haga lo que hicimos en aula
+
+Tenga en cuenta que todavía estamos repitiendo código, lo cual no es una buena práctica.
+
+Cree una nueva clase *AutenticacionUtil* y ponga el código a continuación:
+
+```java
+public class AutenticacionUtil {
+    private int contraseña;
+
+    public void setContraseña(int contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public boolean autenticar(int contraseña) {
+        if (this.contraseña == contraseña) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+}
+```
+
+En el código de la clase *Cliente*, modifique el código de la siguiente manera:
+
+```java
+public class Cliente implements Autenticacion {
+
+    private AutenticacionUtil autenticador;
+
+    public Cliente() {
+        this.autenticador = new AutenticacionUtil();
+    }
+
+    @Override
+    public void setContraseña(int contraseña) {
+        this.autenticador.setContraseña(contraseña);
+    }
+
+    @Override
+    public boolean autenticar(int contraseña) {
+        return this.autenticador.autenticar(contraseña);
+    }
+}
+```
+Realice los mismos cambios en la clase *Administrador* y *Gerente*, ¡no olvide crear el constructor!
+
+¡Pruebe todo y vea si todo está bien!
+
+Haga lo que hicimos en la clase (Opcional): Modificando el proyecto Cuenta.
+
+Regrese a nuestro proyecto de *Cuenta*.
+
+Cree una interfaz con el nombre de *Tributacion* vea el código a continuación:
+
+```java
+public interface Tributacion {
+    double getValorImpuesto();
+}
+```
+
+Ahora cree una clase llamada *CalculadoraDeImpuesto*, vea el contenido a continuación:
+
+```java
+public class CalculadoraDeImpuesto {
+
+    private double totalImpuesto;
+
+    public void registra(Tributacion t) {
+        double valor = t.getValorImpuesto();
+        this.totalImpuesto += valor;
+    }
+
+    public double getTotalImpuesto() {
+        return totalImpuesto;
+    }
+}
+```
+
+Cree una clase llamada *SeguroDeVida* y defina la interfaz *Tributacion*, también configure la *CuentaCorriente* como *Tributacion* y complete el código, consulte a continuación:
+
+**CuentaCorriente**
+
+```java
+public class CuentaCorriente implements Tributacion {
+
+    @Override
+    public double getValorImpuesto() {
+        return super.saldo * 0.01;
+    }
+}
+```
+
+**SeguroDeVida** NOTA: Tenga en cuenta que el método aún debe implementarse correctamente:
+
+```java
+public class SeguroDeVida implements Tributacion {
+
+    @Override
+    public double getValorImpuesto() {
+        return 0;
+    }
+}
+```
+
+Cree una clase *TestTributacion*con el método *main*, consulte el siguiente código:
+
+```java
+public class TestTributacion {
+
+    public static void main(String[] args) {
+        CuentaCorriente cc = new CuentaCorriente(222, 333);
+        cc.depositar(100.0);
+
+        SeguroDeVida seguro = new SeguroDeVida();
+
+        CalculadoraDeImpuesto calc = new CalculadoraDeImpuesto();
+
+        calc.registra(cc);
+        calc.registra(seguro);
+
+        System.out.println(calc.getTotalImpuesto());
+    }
+}
+```
+
+### Lo que aprendimos
+
+En esta clase aprendemos:
+
+- Más en profundidad sobre el uso de interfaces.
+- Trabajamos más profundamente con la herencia.
+- Vimos otras aplicaciones de herencia e interfaz.
