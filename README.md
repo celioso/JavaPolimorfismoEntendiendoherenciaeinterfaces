@@ -1,4 +1,4 @@
-# JavaPolimorfismoEntendiendoherenciaeinterfaces
+# Java Polimorfismo Entendiendo herencia e interfaces
 
 Llegó la hora de poner en práctica todo lo que fue visto en el aula. Para esto, ejecute los pasos listados abajo.
 
