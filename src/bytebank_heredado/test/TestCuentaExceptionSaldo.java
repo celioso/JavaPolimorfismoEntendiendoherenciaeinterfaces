@@ -1,4 +1,4 @@
-package bytebank_heredado;
+package bytebank_heredado.test;
 
 public class TestCuentaExceptionSaldo {
 	public static void main(String[] args) {

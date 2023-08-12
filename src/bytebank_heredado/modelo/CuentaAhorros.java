@@ -1,4 +1,4 @@
-package bytebank_heredado;
+package bytebank_heredado.modelo;
 
 public class CuentaAhorros extends Cuenta {
 	

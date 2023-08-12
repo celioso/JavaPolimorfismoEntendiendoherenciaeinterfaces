@@ -1,9 +1,11 @@
-package bytebank_heredado;
+package bytebank_heredado.test;
+
+import bytebank_heredado.modelo.Gerente;
 
 public class TestGerente {
 	
 	public static void main(String[] args) {
-		Gerente gerente = new Gerente();
+		bytebank_heredado.modelo.Gerente gerente = new bytebank_heredado.modelo.Gerente();
 		//gerente.setSalario(5000);
 		//Funcionario gerente = new Funcionario();
 		gerente.setSalario(6000);
