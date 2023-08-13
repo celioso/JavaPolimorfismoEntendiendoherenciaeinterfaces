@@ -14,4 +14,10 @@ public class CuentaAhorros extends Cuenta {
 		
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
 }
