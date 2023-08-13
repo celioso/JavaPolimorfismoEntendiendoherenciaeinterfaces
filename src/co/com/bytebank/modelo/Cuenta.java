@@ -1,4 +1,6 @@
-package bytebank_heredado.modelo;
+package co.com.bytebank.modelo;
+
+import co.com.bytebank.cliente.Cliente;
 
 //entidad cuenta:
 

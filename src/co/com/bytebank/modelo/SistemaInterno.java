@@ -1,4 +1,4 @@
-package bytebank_heredado.modelo;
+package co.com.bytebank.modelo;
 
 public class SistemaInterno {
 	

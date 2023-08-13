@@ -1,4 +1,6 @@
-package bytebank_heredado.test;
+package co.com.bytebank.test;
+
+import co.com.bytebank.modelo.*;
 
 public class TestControlBonificacion {
 	

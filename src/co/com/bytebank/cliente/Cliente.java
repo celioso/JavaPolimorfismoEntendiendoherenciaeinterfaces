@@ -1,4 +1,6 @@
-package bytebank_heredado.modelo;
+package co.com.bytebank.cliente;
+
+import co.com.bytebank.modelo.*;
 
 public class Cliente implements Autenticable{
 	private String nombre;
