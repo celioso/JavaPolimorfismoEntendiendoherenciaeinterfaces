@@ -11,7 +11,7 @@ import co.com.bytebank.cliente.Cliente;
 
 //entidad cuenta:
 
-public abstract class Cuenta{
+public abstract class Cuenta {
 	
 	// public   Accesible desde cualquier parte
 	// --default  Accesible dentro del paquete
