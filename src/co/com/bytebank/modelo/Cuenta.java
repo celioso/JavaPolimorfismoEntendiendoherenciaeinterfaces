@@ -1,10 +1,22 @@
 package co.com.bytebank.modelo;
 
+/**
+ * account will create new instances of CuentaCorriente
+ * @version 1.0
+ * @author Celis
+ * 
+ */
+
 import co.com.bytebank.cliente.Cliente;
 
 //entidad cuenta:
 
 public abstract class Cuenta{
+	
+	// public   Accesible desde cualquier parte
+	// --default  Accesible dentro del paquete
+	// --protected  default + hijas
+	// ---private  solo desde la clases misma
 	
 	protected double saldo;
 	private int agencia = 1;
@@ -13,10 +25,18 @@ public abstract class Cuenta{
 	
 	private static int total;
 	
+	/**
+	 * Instance an new account without parameters
+	 */
+	
 	public Cuenta() {
 		
 	}
-	
+	/**
+	 * Instance an  account wearing agencia and numero
+	 * @param agencia
+	 * @param numero
+	 */
 	public Cuenta(int agencia, int numero) {
 		this.agencia = agencia;
 		this.agencia = numero;
@@ -26,6 +46,12 @@ public abstract class Cuenta{
 	}
 	
 	public abstract void depositar(double valor);
+	/**
+	 * this method withdraws money from the account 
+	 * and if an error occurs returns an exception
+	 * @param valor
+	 * @throws SaldoInsuficienteException
+	 */
 	
 	//Retorna valor
 	public void retirar(double valor) throws SaldoInsuficienteException{
