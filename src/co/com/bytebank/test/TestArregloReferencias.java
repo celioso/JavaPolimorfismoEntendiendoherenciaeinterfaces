@@ -1,0 +1,19 @@
+package co.com.bytebank.test;
+
+import co.com.bytebank.modelo.CuentaCorriente;
+
+public class TestArregloReferencias {
+	public static void main(String[] args) {
+		CuentaCorriente cc = new CuentaCorriente(23, 44);
+		
+		//                          [  | cc |  |  |  ]
+		CuentaCorriente[] cuentas = new CuentaCorriente[5];
+		cuentas[1] = cc;
+		
+		System.out.println(cc);
+		System.out.println(cuentas[1]);
+		
+		cuentas[0] = new CuentaCorriente(11, 99);
+		System.out.println(cuentas[0]);
+	}
+}

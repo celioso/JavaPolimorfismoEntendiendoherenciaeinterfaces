@@ -39,8 +39,8 @@ public abstract class Cuenta {
 	 */
 	public Cuenta(int agencia, int numero) {
 		this.agencia = agencia;
-		this.agencia = numero;
-		System.out.println("Estoy en la cuenta " + this.numero);
+		this.numero = numero;
+		System.out.println("Estoy creando una cuenta " + this.numero);
 		
 		Cuenta.total ++;	
 	}
