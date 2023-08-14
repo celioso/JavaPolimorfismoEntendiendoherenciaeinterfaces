@@ -3,6 +3,10 @@ package co.com.bytebank.test;
 public class TestMain {
 	public static void main(String[] args) {
 		
+		for (int i = 0; i < args.length; i++) {
+			System.out.println(args[i]);
+		}
+		
 		int edad = 20;
 		int edad2 = 15;
 		int edad3 = 67;
@@ -20,7 +24,7 @@ public class TestMain {
 		int tamanoArray = edades.length;
 		System.out.println(tamanoArray);
 		
-		for (int i = 0; i < tamanoArray; i++) {
+		for (int i = 0; i < edades.length; i++) {
 			System.out.println(edades[i]);
 		}
 	}

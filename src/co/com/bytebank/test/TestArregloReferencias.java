@@ -1,23 +1,37 @@
 package co.com.bytebank.test;
 
-import co.com.bytebank.modelo.CuentaCorriente;
+import co.com.bytebank.cliente.Cliente;
+import co.com.bytebank.modelo.*;
+
 
 public class TestArregloReferencias {
 	public static void main(String[] args) {
+		
+		Object[] referencias = new Object[5];
+		
 		CuentaCorriente cc = new CuentaCorriente(23, 44);
 		
-		//                          [  | cc |  |  |  ]
-		CuentaCorriente[] cuentas = new CuentaCorriente[5];
-		cuentas[1] = cc;
+		//                          [ new | cc | null | null | null ]
+		referencias[1] = cc;
 		
-		System.out.println(cc);
-		System.out.println(cuentas[1]);
+		Cliente cliente = new Cliente();
+		referencias[4] = cliente;
 		
-		cuentas[0] = new CuentaCorriente(11, 99);
-		System.out.println(cuentas[0]);
+		Cliente obtenido = (Cliente) referencias[4];
+		System.out.println(obtenido);
 		
-		for (int i = 0;i < cuentas.length; i++) {
-			System.out.println(cuentas[i]);
+		CuentaAhorros ca = new CuentaAhorros(44, 55);
+		referencias[3] = ca;
+		
+		referencias[0] = new CuentaCorriente(11, 99);
+		System.out.println(referencias[0]);
+		
+		// Cast
+		CuentaCorriente cuenta = (CuentaCorriente) referencias[1];
+		System.out.println(cuenta);
+		
+		for (int i = 0;i < referencias.length; i++) {
+			System.out.println(referencias[i]);
 		}
 	}
 }
