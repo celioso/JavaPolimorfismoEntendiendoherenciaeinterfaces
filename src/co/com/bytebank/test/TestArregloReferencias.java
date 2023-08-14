@@ -15,5 +15,9 @@ public class TestArregloReferencias {
 		
 		cuentas[0] = new CuentaCorriente(11, 99);
 		System.out.println(cuentas[0]);
+		
+		for (int i = 0;i < cuentas.length; i++) {
+			System.out.println(cuentas[i]);
+		}
 	}
 }
