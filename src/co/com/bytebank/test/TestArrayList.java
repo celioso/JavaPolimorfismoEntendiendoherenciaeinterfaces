@@ -11,11 +11,15 @@ public class TestArrayList {
 		
 		// <> Forzando a que acepte solo un tipo de objeto
 		ArrayList<Cuenta> lista = new ArrayList<>();
+		// referencia  Objeto -> HEAP
 		Cuenta cc = new CuentaCorriente(11, 22);
 		Cuenta cc2 = new CuentaCorriente(13, 42);
+		Cuenta cc3 = new CuentaCorriente(11, 22);
 		
+		// [cc, cc2]
 		lista.add(cc);
 		lista.add(cc2);
+		//lista.add(cc3);
 		
 		/*Cliente Cliente = new Cliente();
 		lista.add(Cliente);*/
@@ -31,6 +35,12 @@ public class TestArrayList {
 		for (Cuenta cuenta : lista) {
 			System.out.println(cuenta);
 			
+		}
+		
+		boolean contiene = lista.contains(cc3);
+		// Por referencia
+		if (contiene) {
+			System.out.println("Si, es igual (equals)");
 		}
 	}
 }
