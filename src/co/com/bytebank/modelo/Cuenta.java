@@ -11,7 +11,7 @@ import co.com.bytebank.cliente.Cliente;
 
 //entidad cuenta:
 
-public abstract class Cuenta {
+public abstract class Cuenta implements Comparable<Cuenta>{
 	
 	// public   Accesible desde cualquier parte
 	// --default  Accesible dentro del paquete
@@ -119,7 +119,7 @@ public abstract class Cuenta {
 	
 	@Override
 	public String toString() {
-		String cuenta = "Numero: " + this.numero + ", Agencia: " + this.agencia;
+		String cuenta = "Numero: " + this.numero + ", Agencia: " + this.agencia + ", Titular: " + this.titular.getNombre();
 		return cuenta;
 	}
 	
@@ -132,4 +132,11 @@ public abstract class Cuenta {
 		
 	}
 	
+	@Override
+	public int compareTo(Cuenta o) {
+		// Orden natural:Numero Agencia
+		// return Integer.compare(this.agencia, o.getAgencia());
+		//orden natural: Saldo
+		return Double.compare(this.getSaldo(), o.getSaldo());
+	}
 }
