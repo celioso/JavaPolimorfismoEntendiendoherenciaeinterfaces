@@ -28,7 +28,6 @@ public class TestArrayList {
 		// [cc, cc2]
 		lista.add(cc);
 		lista.add(cc2);
-		//lista.add(cc3);
 		
 		/*Cliente Cliente = new Cliente();
 		lista.add(Cliente);*/
